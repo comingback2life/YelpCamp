@@ -1,0 +1,27 @@
+<%-layout('layout/boilerplate.ejs')%>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let c of campgrounds.reverse()){%>
+    <tr>
+      <th scope="row"><%=c.id%></th>
+      <td><%=c.title%></td>
+      <td><%=c.description%></td>
+      <td><%=c.price%></td>
+      <td><%=c.location%></td>
+      <% for(let review of c.reviews){ %>
+      <td><%=review.body %></td>
+      <% } %>
+    </tr>
+
+    <%}%>
+  </tbody>
+</table>
